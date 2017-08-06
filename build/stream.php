@@ -24,7 +24,7 @@ $MAX_COL = $sheet->getHighestDataColumn();
 $MAX_COL_INDEX = PHPExcel_Cell::columnIndexFromString($MAX_COL);
 for($ii=0;$ii<=$MAX_COL_INDEX;$ii++){
   $col = PHPExcel_Cell::stringFromColumnIndex($ii);
-  $highestRow = $activeSheet->getHighestRow();
+  $highestRow = $sheet->getHighestRow();
   for($row=1; $row <= $highestRow; $row++) {
     if(PHPExcel_Shared_Date::isDateTime($cellobj)) {
       $cellobj=$objWorksheet->getCellByColumnAndRow($col, $row);
