@@ -26,7 +26,7 @@ for($ii=0;$ii<=$MAX_COL_INDEX;$ii++){
   $col = PHPExcel_Cell::stringFromColumnIndex($ii);
   $highestRow = $sheet->getHighestRow();
   for($row=1; $row <= $highestRow; $row++) {
-    $cellobj=$objWorksheet->getCellByColumnAndRow($col, $row);
+    $cellobj=$sheet->getCellByColumnAndRow($col, $row);
     if(PHPExcel_Shared_Date::isDateTime($cellobj)) {
       $cellobj->getStyle()->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD);
     }
