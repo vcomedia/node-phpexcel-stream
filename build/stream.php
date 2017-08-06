@@ -14,8 +14,7 @@ if (PHPExcel_Settings::setCacheStorageMethod($cache)!==true) {
   throw new Exception('SQLite3 not available');
 }
 
-$excel = PHPExcel_IOFactory::createReaderForFile($file)
-  ->setReadDataOnly(true)
+$excel = PHPExcel_IOFactory::createReaderForFile($file)  // ->setReadDataOnly(true)
   ->load($file);
 
 PHPExcel_IOFactory::createWriter($excel, 'CSV')

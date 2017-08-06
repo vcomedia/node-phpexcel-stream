@@ -18,8 +18,8 @@
     "osenv": "~0.1.1"
   },
   "devDependencies": {
-    "csv-parser": "~1.6.0",
-    "deep-equal": "~1.0.0",
+    "csv-parser": "~1.11.0",
+    "deep-equal": "~1.0.1",
     "jsonstream": "~1.0.3",
     "tape": "~4.0.0",
     "through2": "~0.6.5"
