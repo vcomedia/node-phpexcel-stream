@@ -14,8 +14,26 @@ if (PHPExcel_Settings::setCacheStorageMethod($cache)!==true) {
   throw new Exception('SQLite3 not available');
 }
 
-$excel = PHPExcel_IOFactory::createReaderForFile($file)  // ->setReadDataOnly(true)
+$excel = PHPExcel_IOFactory::createReaderForFile($file)
+  ->setReadDataOnly(false)  //true
   ->load($file);
+
+//normalize all date fields
+$sheet = $excel->getActiveSheet();
+$MAX_COL = $sheet->getHighestDataColumn();
+$MAX_COL_INDEX = PHPExcel_Cell::columnIndexFromString($MAX_COL);
+for($ii=0;$ii<=$MAX_COL_INDEX;$ii++){
+  $col = PHPExcel_Cell::stringFromColumnIndex($ii);
+  $highestRow = $activeSheet->getHighestRow();
+  for($row=1; $row <= $highestRow; $row++) {
+    if(PHPExcel_Shared_Date::isDateTime($cellobj)) {
+      $cellobj=$objWorksheet->getCellByColumnAndRow($col, $row);
+      if(PHPExcel_Shared_Date::isDateTime($cellobj)) {
+        $cellobj->getStyle()->getNumberFormat()->setFormatCode(PHPExcel_Style_NumberFormat::FORMAT_DATE_YYYYMMDD);
+      }
+    }
+  }
+}
 
 PHPExcel_IOFactory::createWriter($excel, 'CSV')
   ->save('php://stdout');
