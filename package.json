@@ -12,17 +12,17 @@
     "build": "php -d phar.readonly=Off build/vendor/kherge/box/bin/box build -v -c build/box.json"
   },
   "dependencies": {
-    "concat-stream": "~1.4.8",
-    "cross-spawn": "~0.4.0",
-    "duplexify": "~3.4.0",
-    "osenv": "~0.1.1"
+    "concat-stream": "^1.6.0",
+    "cross-spawn": "^5.1.0",
+    "duplexify": "^3.5.1",
+    "osenv": "~0.1.4"
   },
   "devDependencies": {
     "csv-parser": "~1.11.0",
     "deep-equal": "~1.0.1",
     "jsonstream": "~1.0.3",
     "tape": "~4.0.0",
-    "through2": "~0.6.5"
+    "through2": "~2.0.3"
   },
   "keywords": [
     "spreadsheet",
